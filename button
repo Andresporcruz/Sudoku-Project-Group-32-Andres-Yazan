@@ -1,0 +1,34 @@
+import pygame
+import sys
+import os
+
+from game_constants import *
+
+pygame.init()
+
+# Set up game window
+game_window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+pygame.display.set_caption("Sudoku")
+
+# Load game assets
+number_font = pygame.font.Font(None, 32)
+
+easy_button_image = pygame.image.load("button_easy.png").convert_alpha()
+medium_button_image = pygame.image.load("button_medium.png").convert_alpha()
+hard_button_image = pygame.image.load("button_hard.png").convert_alpha()
+background_image = pygame.image.load("background.png").convert_alpha()
+
+restart_button_image = pygame.image.load(os.path.join('assets', 'restart.png'))
+exit_button_image = pygame.image.load(os.path.join('assets', 'exit.png'))
+small_exit_button_image = pygame.image.load(os.path.join('assets', 'exit_small.png'))
+small_restart_button_image = pygame.image.load(os.path.join('assets', 'restart_small.png'))
+reset_button_image = pygame.image.load(os.path.join('assets', 'reset.png'))
+
+# Button class for game buttons
+class Button:
+    def __init__(self, image, position):
+        self.image = image
+        self.rect = image.get_rect(topleft=position)
+
+    def when_clicked(self):
+        pass
